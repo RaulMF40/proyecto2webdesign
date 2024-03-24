@@ -1,0 +1,429 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Roboto:wght@100;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+:root {
+  /*Spacings*/
+  --rtc-s-spacing: 0.5rem;
+  --rtc-m-spacing: 1rem;
+  --rtc-l-spacing: 1.5rem;
+  --rtc-xl-spacing: 5rem;
+
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5;
+
+  --font-size-xl: 45px;
+  --font-size-m: 14px;
+  --font-size-s: 12px;
+  --font-size-xs: 10px;
+  /*Background Colors */
+  --rtc-bg-color1: rgb(57, 57, 187);
+
+  /*Colors*/
+  --rtc-green: #67783d;
+  --rtc-grey: #3a3a3a;
+  --rtc-blue: #3860a9;
+  --rtc-white: #ffffff;
+  --rtc-black: #000000;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+header {
+  display: flex;
+  align-items: self-end;
+  justify-content: space-between;
+  padding: var(--rtc-m-spacing);
+  width: 90svw;
+  background-color: var(--rtc-bg-color1);
+  align-content: flex-start;
+}
+
+.menu_tiny {
+  width: 1rem;
+  color: whitesmoke;
+}
+
+#menu {
+  display: flex;
+}
+
+.menu_img {
+  width: 3rem;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.nav-ul {
+  display: none;
+  position: absolute;
+}
+
+#menu:checked ~ .nav-ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rtc-s-spacing);
+  padding: var(--rtc-s-spacing);
+  left: 0;
+  right: 0;
+  background-color: var(--rtc-white);
+  margin-top: 3rem;
+  height: 15rem;
+}
+
+.nav-a {
+  color: whitesmoke;
+}
+
+section {
+  margin-top: calc(
+    var(--rtc-m-spacing) + 110px
+  ); /* 50px es el espacio del header */
+
+  padding: var(--rtc-m-spacing);
+}
+
+/* Estilos para el formulario */
+aside > form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 20rem;
+  /*border: 2px solid var(--rtc-blue);*/
+  padding: 5rem;
+  border-radius: 1px;
+  width: 90%;
+  max-width: 400px;
+  align-content: space-around;
+  justify-content: space-between;
+}
+
+/* Estilos para los elementos del formulario */
+
+aside > form > label {
+  width: 95%;
+}
+
+.select,
+.priceInput {
+  width: 95%;
+  text-align: center;
+  padding: 7px;
+  border: 1px solid var(--rtc-grey);
+  border-radius: 5px;
+  margin-bottom: var(--rtc-xs-spacing);
+}
+
+.priceInput {
+  width: 100%;
+}
+
+.filterButton,
+.resetButton {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  background-color: var(--rtc-blue);
+  color: var(--rtc-white);
+  cursor: pointer;
+  border-radius: 2px;
+  margin-bottom: var(--rtc-s-spacing);
+}
+
+/* Estilos para los botones cuando están en estado de hover */
+.filterButton:hover,
+.resetButton:hover {
+  background-color: rgb(98, 92, 186);
+}
+
+/* Estilo adicional para el último botón */
+.resetButton {
+  background-color: var(--rtc-blue);
+  color: var(--rtc-white);
+  padding: 7px;
+  border: 1px solid var(--rtc-green);
+}
+
+.resetButton:hover {
+  background-color: rgb(98, 92, 186);
+  color: var(--rtc-white);
+}
+
+/* Estilos para hacer el formulario responsive */
+@media screen and (max-width: 600px) {
+  aside > form {
+    width: 95%;
+  }
+}
+
+.CardsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: var(--rtc-s-spacing);
+  gap: var(--rtc-m-spacing);
+  border-bottom: 1px solid var(--rtc-orange);
+  padding-bottom: var(--rtc-m-spacing);
+}
+
+.card {
+  background-color: rgb(103, 120, 61, 0.3);
+  color: var(--rtc-black);
+  width: 15rem;
+  height: 32rem;
+  padding: var(--rtc-s-spacing);
+}
+
+.card:hover {
+  background-color: rgb(247, 216, 74, 0.3);
+}
+
+.cardType {
+  color: var(--rtc-grey);
+}
+
+.cardImage {
+  width: 100%;
+  border-bottom: 1px solid var(--rtc-green);
+}
+
+.cardImage:hover {
+  width: 220px; /* Cambia el ancho de la imagen al pasar el cursor sobre ella */
+  transform: scale(1.2);
+}
+
+/* de los botones de añadir */
+
+.addButton {
+  /* Estilos del botón */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 3px 11px;
+}
+
+.addButton:hover {
+  background-color: rgb(98, 92, 186);
+  color: var(--rtc-white);
+}
+
+.quantityInput {
+  /* Estilos del input de cantidad */
+  display: contents;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* */
+
+.formSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--rtc-s-spacing);
+  padding: var(--rtc-m-spacing);
+  background-color: var(--rtc-bg-color1);
+  color: var(--rtc-white);
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.finalForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--rtc-s-spacing);
+}
+
+.formTitle {
+  font-size: 1.1rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.formContent {
+  font-size: 0.9rem;
+}
+
+.sendButton {
+  background-color: var(--rtc-orange);
+  border: 1px solid var(--rtc-green);
+  cursor: pointer;
+}
+
+.sendButton:hover {
+  background-color: var(--rtc-grey);
+  color: var(--rtc-orange);
+}
+
+.sendButton,
+.emailInput,
+.nameInput {
+  padding: var(--rtc-s-spacing);
+  width: 7rem;
+  text-align: center;
+}
+
+.footerImg {
+  width: 2rem;
+}
+
+.divFooterContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #4f484e;
+  padding: var(--rtc-m-spacing);
+  gap: var(--rtc-m-spacing);
+}
+
+.footerSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rtc-s-spacing);
+  padding: 10px;
+}
+
+.footerSection:last-child {
+  border-top: 1px solid var(--rtc-black);
+}
+
+.RRSS {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.myFooterContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: var(--rtc-l-spacing);
+  background-color: var(--rtc-bg-color1);
+  font-size: var(--font-size-m);
+  padding: var(--rtc-m-spacing);
+}
+
+.myFooterImg {
+  width: 2rem;
+  border-radius: 50%;
+}
+
+.myRRSSContainer > ul {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.myRRSSContainer {
+  width: 80%;
+}
+
+.myFooterA {
+  color: var(--rtc-black);
+}
+
+@media screen and (min-width: 400px) {
+  aside {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .CardsContainer {
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .finalForm {
+    flex-direction: row;
+  }
+
+  .divFooterContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .footerSection {
+    width: 10rem;
+  }
+
+  .footerSection:last-child {
+    border: 0;
+  }
+
+  .myFooterContainer {
+    flex-direction: row;
+  }
+
+  .myRRSSContainer,
+  .myFooterP {
+    width: 45%;
+  }
+  .menu_img {
+    float: right;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  nav {
+    width: 80%;
+    display: flex;
+    justify-content: right;
+  }
+
+  .nav-ul {
+    display: flex;
+    gap: var(--rtc-l-spacing);
+  }
+
+  aside {
+    display: block;
+  }
+
+  aside > form {
+    width: 90%;
+    float: left;
+    border: 0;
+  }
+
+  .divFooterContainer {
+    justify-content: space-evenly;
+  }
+
+  .nav-a {
+    color: whitesmoke;
+  }
+
+  .nav-a:hover {
+    color: var(--rtc-green);
+    border-bottom: 1px dashed var(--rtc-orange);
+  }
+
+  nav > label {
+    display: none;
+  }
+
+  .menu_tiny {
+    color: whitesmoke;
+  }
+}
