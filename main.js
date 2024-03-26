@@ -371,6 +371,16 @@ const createFooter = () => {
 
 createFooter()
 
+// Función para mostrar un mensaje cuando no se encuentren productos
+const noProductsMessage = () => {
+  const message = document.createElement('p')
+  message.textContent =
+    'NO SE ENCONTRARÓN PRODUCTOS QUE COINCIDAN CON LA BÚSQUEDA.'
+  message.id = 'noProductsMsg'
+  cardsArticle$$.innerHTML = ''
+  cardsArticle$$.appendChild(message)
+}
+
 // Función para restablecer los filtros
 const resetFilters = () => {
   createProducts(products)
@@ -385,7 +395,11 @@ const filterBySelect = (e) => {
   const productByType = CopyProducts.filter((product) => {
     return product.type === selected
   })
-  createProducts(productByType)
+  if (productByType.length === 0) {
+    noProductsMessage()
+  } else {
+    createProducts(productByType)
+  }
 }
 
 // Función para filtrar por marca ingresada en el input
@@ -393,7 +407,6 @@ const filterByBrandInput = () => {
   const CopyProducts = [...products]
   const selectedType = document.querySelector('#select').value
   const selectedBrand = document.querySelector('#brandInput').value
-
   if (selectedType !== '') {
     const productByType = CopyProducts.filter((product) => {
       return (
@@ -401,15 +414,22 @@ const filterByBrandInput = () => {
         (selectedBrand === '' || product.brand === selectedBrand)
       )
     })
-
-    cardsArticle$$.innerHTML = ''
-    createProducts(productByType)
+    if (productByType.length === 0) {
+      noProductsMessage()
+    } else {
+      cardsArticle$$.innerHTML = ''
+      createProducts(productByType)
+    }
   } else {
     const productByBrand = CopyProducts.filter((product) => {
       return product.brand === selectedBrand
     })
-    cardsArticle$$.innerHTML = ''
-    createProducts(productByBrand)
+    if (productByBrand.length === 0) {
+      noProductsMessage()
+    } else {
+      cardsArticle$$.innerHTML = ''
+      createProducts(productByBrand)
+    }
   }
 }
 
@@ -424,7 +444,6 @@ const filterByAll = () => {
   const CopyProducts = [...products]
   const selectedType = document.querySelector('#select').value
   const selectedBrand = document.querySelector('#brandInput').value
-
   if (selectedType !== '') {
     const productByPriceAndType = CopyProducts.filter((product) => {
       return (
@@ -433,9 +452,12 @@ const filterByAll = () => {
         (selectedBrand === '' || product.brand === selectedBrand)
       )
     })
-
-    cardsArticle$$.innerHTML = ''
-    createProducts(productByPriceAndType)
+    if (productByPriceAndType.length === 0) {
+      noProductsMessage()
+    } else {
+      cardsArticle$$.innerHTML = ''
+      createProducts(productByPriceAndType)
+    }
   } else {
     const productByPrice = CopyProducts.filter((product) => {
       return (
@@ -443,8 +465,12 @@ const filterByAll = () => {
         (selectedBrand === '' || product.brand === selectedBrand)
       )
     })
-    cardsArticle$$.innerHTML = ''
-    createProducts(productByPrice)
+    if (productByPrice.length === 0) {
+      noProductsMessage()
+    } else {
+      cardsArticle$$.innerHTML = ''
+      createProducts(productByPrice)
+    }
   }
 }
 
@@ -453,6 +479,7 @@ const selectOpt = document.querySelector('#select')
 const brandInput$$ = document.querySelector('#brandInput')
 const filterButton = document.querySelector('#priceFilter')
 const resetButton = document.querySelector('#resetButton')
+
 selectOpt.addEventListener('change', filterBySelect)
 brandInput$$.addEventListener('input', filterByBrandInput)
 filterButton.addEventListener('click', filterByAll)
