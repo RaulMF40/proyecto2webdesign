@@ -41,6 +41,7 @@ const createHeader = () => {
     const inputMenu$$ = document.createElement('input')
     inputMenu$$.type = 'checkbox'
     inputMenu$$.id = 'menu'
+    inputMenu$$.style.display = 'none'
 
     const label$$ = document.createElement('label')
     label$$.htmlFor = 'menu'
@@ -88,6 +89,17 @@ const createHeader = () => {
 }
 
 createHeader()
+
+const createHero = () => {
+  const img$$ = document.createElement('img')
+  img$$.className = 'hero-img'
+  const figure$$ = document.createElement('figure')
+  figure$$.className = 'hero-container'
+  img$$.src = './assets/comic.jpg'
+  figure$$.appendChild(img$$)
+  app$$.appendChild(figure$$)
+}
+createHero()
 
 // Función para crear las etiquetas de filtro
 const createFilterTags = () => {
