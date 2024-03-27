@@ -344,7 +344,6 @@ export const sellerOptions = [
   'Libros (Novedad)',
   'Manga (Novedad)',
   'Marvel Cómics (Novedad)',
-  'Manga (Novedad)',
   'Merchandising (Pre-Venta)',
   'Merchandising (Oferta)'
 ]
